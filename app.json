@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "MisFinanzas",
+    "slug": "misfinanzas",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "misfinanzas",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.appjefa.misfinanzas"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.appjefa.misfinanzas"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        { "cameraPermission": "MisFinanzas necesita acceso a la cámara para escanear recibos." }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
