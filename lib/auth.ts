@@ -1,6 +1,14 @@
 import * as SecureStore from 'expo-secure-store'
+import * as ExpoCrypto from 'expo-crypto'
 import bcryptjs from 'bcryptjs'
 import { supabase } from '@/lib/supabase'
+
+// bcryptjs needs a crypto random source — React Native doesn't have WebCryptoAPI
+bcryptjs.setRandomFallback((len: number) => {
+  const buf = new Uint8Array(len)
+  ExpoCrypto.getRandomValues(buf)
+  return Array.from(buf)
+})
 
 const SESSION_KEY = 'mf_session'
 const SESSION_DURATION_MS = 7 * 24 * 60 * 60 * 1000
