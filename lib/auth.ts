@@ -11,7 +11,8 @@ interface Session {
 }
 
 export async function hashPin(pin: string): Promise<string> {
-  return bcryptjs.hash(pin, 10)
+  const salt = await bcryptjs.genSalt(10)
+  return bcryptjs.hash(pin, salt)
 }
 
 export async function verifyPin(pin: string, hash: string): Promise<boolean> {
